@@ -1,0 +1,22 @@
+{
+  "name": "coap",
+  "version": "1.0.0",
+  "description": "coap 学习笔记",
+  "main": "index.js",
+  "dependencies": {
+    "coap": "0.7.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lwplvx/coap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lwplvx/coap/issues"
+  },
+  "homepage": "https://github.com/lwplvx/coap#readme"
+}
