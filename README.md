@@ -11,20 +11,20 @@ http://wowubuntu.com/markdown/#code
 ## Node CoAP CLI
 安装命令如下
 
- `npm install coap-cli -g`
+     npm install coap-cli -g
 
  用coap://vs0.inf.ethz.ch/来作一个简单的测试
  
- `:coap luweiping$ coap get coap://vs0.inf.ethz.ch
-(2.05)	************************************************************
-CoAP RFC 7252                              Cf 1.1.0-SNAPSHOT
-************************************************************
-This server is using the Eclipse Californium (Cf) CoAP framework
-published under EPL+EDL: http://www.eclipse.org/californium/
+    luweipingdeMac:coap luweiping$ coap get coap://vs0.inf.ethz.ch
+    (2.05)	************************************************************
+    CoAP RFC 7252                              Cf 1.1.0-SNAPSHOT
+    ************************************************************
+    This server is using the Eclipse Californium (Cf) CoAP framework
+    published under EPL+EDL: http://www.eclipse.org/californium/
 
-(c) 2014, 2015, 2016 Institute for Pervasive Computing, ETH Zurich and others
-************************************************************
-luweipingdeMac:coap luweiping$`
+    (c) 2014, 2015, 2016 Institute for Pervasive Computing, ETH Zurich and others
+    ************************************************************
+    luweipingdeMac:coap luweiping$`
 
  # CoAP Hello,World
 
@@ -37,46 +37,49 @@ luweipingdeMac:coap luweiping$`
 
 Node-CoAP是一个客户端和服务端的库用于CoAP的模块建模。创建一个package.json文件，添加这个库
 
-`{
-  "dependencies":{
-    "coap": "0.7.2"
-  }
-}`
+    {
+      "dependencies":{
+        "coap": "0.7.2"
+      }
+    }
 
 接着执行
-`npm install`
+
+`    npm install`
 
 接着，创建这样一个app.js
 
-`const coap        = require('coap')
-    , server  = coap.createServer()
+    const coap        = require('coap')
+        , server  = coap.createServer()
 
-server.on('request', function(req, res) {
-  res.end('Hello ' + req.url.split('/')[1] + '\n')
-})
+    server.on('request', function(req, res) {
+      res.end('Hello ' + req.url.split('/')[1] + '\n')
+    })
 
-server.listen(function() {
-  console.log('server started')
-})  `
+    server.listen(function() {
+      console.log('server started')
+    })  
 
 执行
-`node app.js`
+
+`    node app.js`
 
 便可以在浏览器上访问了，因为现在什么也没有，所以什么也不会返回。
 
 接着下来再创建一个client端的js，并运行之
 
-`const coap  = require('coap') 
-    , req   = coap.request('coap://localhost/World')
+    const coap  = require('coap') 
+        , req   = coap.request('coap://localhost/World')
 
-req.on('response', function(res) {
-  res.pipe(process.stdout)
-})
+    req.on('response', function(res) {
+      res.pipe(process.stdout)
+    })
 
-req.end()`
+    req.end()
 
 就可以在console上输出
-`Hello World`
+
+`    Hello World`
 
 也就达到了我们的目的，用CoAP协议创建一个服务，接着我们应该用它创建更多的东西，如产生JSON数据，以及RESTful。和HTTP版的最小物联网系统一样，CoAP版的最小物联网系统也是要返回JSON的。
 
